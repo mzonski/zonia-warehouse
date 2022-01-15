@@ -40,7 +40,6 @@
     "react": "^17.0.2",
     "react-hook-form": "^7.22.5",
     "react-native": "0.66.3",
-    "react-native-code-push": "^7.0.4",
     "react-native-col": "^1.1.5",
     "react-native-config": "^1.4.5",
     "react-native-elements": "^4.0.0-beta.0",
@@ -52,6 +51,7 @@
     "react-native-screens": "^3.10.1",
     "react-native-snackbar": "^2.4.0",
     "react-native-vector-icons": "^9.0.0",
+    "react-native-vision-camera": "^2.12.0",
     "react-redux": "^7.2.6",
     "reactotron-react-native": "^5.0.1",
     "reactotron-redux": "^3.1.3",
@@ -88,6 +88,10 @@
   },
   "resolutions": {
     "@types/react": "^17"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-native": "0.66.3"
   },
   "husky": {
     "hooks": {
