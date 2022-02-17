@@ -11,7 +11,6 @@ export async function loadString(key: string): Promise<string | null> {
   try {
     return await AsyncStorage.getItem(key);
   } catch {
-    // not sure why this would fail... even reading the RN docs I'm unclear
     return null;
   }
 }
@@ -32,7 +31,7 @@ export async function saveString(key: string, value: string): Promise<boolean> {
 }
 
 /**
- * Loads something from storage and runs it thru JSON.parse.
+ * Loads something from storage and runs it through JSON.parse.
  *
  * @param key The key to fetch.
  */
@@ -70,7 +69,7 @@ export async function remove(key: string): Promise<void> {
 }
 
 /**
- * Burn it all to the ground.
+ * Clear data from AsyncStorage
  */
 export async function clear(): Promise<void> {
   const asyncStorageKeys = await AsyncStorage.getAllKeys();

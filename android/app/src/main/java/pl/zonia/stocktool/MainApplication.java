@@ -9,9 +9,12 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JSIModulePackage;
 import com.facebook.soloader.SoLoader;
 
+import com.mrousavy.camera.frameprocessor.FrameProcessorPlugin;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 
 import java.util.List;
+
+import pl.zonia.stocktool.barcode.BarcodeScannerFrameProcessor;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -51,5 +54,6 @@ public class MainApplication extends Application implements ReactApplication {
     public void onCreate() {
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
+        FrameProcessorPlugin.register(new BarcodeScannerFrameProcessor());
     }
 }

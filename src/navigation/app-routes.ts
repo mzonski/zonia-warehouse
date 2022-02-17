@@ -46,8 +46,8 @@ export type StorageStackScreenParams = {
   [StorageStackRoute.CategoryAdd]: undefined;
   [StorageStackRoute.CategoryEdit]: { categoryId: string };
   [StorageStackRoute.ItemList]: { categoryId: string };
-  [StorageStackRoute.ItemEdit]: { itemId: string };
   [StorageStackRoute.ItemAdd]: { categoryId: string };
+  [StorageStackRoute.ItemEdit]: { itemId: string };
 };
 
 const routeMap = {

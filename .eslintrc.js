@@ -24,6 +24,12 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': ['error', prettierOptions],
+    'react-hooks/exhaustive-deps': [
+      'warn',
+      {
+        additionalHooks: 'useAsyncEffect',
+      },
+    ],
     'react/function-component-definition': 'off',
     'no-param-reassign': 'off',
     'no-sparse-arrays': 'error',

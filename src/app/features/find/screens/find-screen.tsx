@@ -4,21 +4,19 @@ import { Divider, SearchBar } from 'react-native-elements';
 
 import { useAppSelector } from '@redux/app-redux-hooks';
 import { getItems } from '@redux/selectors/items-selectors';
-import { fullObjectTextSearch } from '@util/forms/form-filtering';
+import { objectStringSearch } from '@util/forms/form-filtering';
 import { debounce } from 'lodash';
 
 import { FadeInView } from '@component/fade-in-view';
 import { StockListItem, FindStockListItemProps } from '@component/stock-list-item';
 
-type SearchBarComponentProps = {};
-
-const FindScreen: React.FunctionComponent<SearchBarComponentProps> = () => {
+const FindScreen = (): JSX.Element => {
   const [searchPhrase, setSearchPhrase] = useState<string>();
   const items = useAppSelector(getItems);
 
   const debouncedSetSearchPage = useMemo(() => debounce(setSearchPhrase, 225), [setSearchPhrase]);
   const filteredData = useMemo(
-    () => fullObjectTextSearch(Object.values(items), searchPhrase, ['categoryId', 'id', 'quantity']),
+    () => objectStringSearch(Object.values(items), searchPhrase, ['categoryId', 'id', 'quantity']),
     [items, searchPhrase]
   );
 

@@ -40,6 +40,7 @@
     "paths": {
       "@component/*": ["./src/app/components/*"],
       "@feature/*": ["./src/app/features/*"],
+      "@hook/*": ["./src/app/hooks/*"],
       "@util/*": ["./src/utils/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@navigation": ["./src/navigation"],

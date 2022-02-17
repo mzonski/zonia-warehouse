@@ -124,7 +124,7 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  * on project.ext.react, JavaScript will not be compiled to Hermes Bytecode
  * and the benefits of using Hermes will therefore be sharply reduced.
  */
-def enableHermes = project.ext.react.get("enableHermes", false);
+def enableHermes = project.ext.react.get("enableHermes", false)
 
 
 android {
@@ -211,11 +211,14 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-    implementation 'com.facebook.soloader:soloader:0.10.1'
+    implementation 'com.facebook.soloader:soloader:0.10.3'
+
+    implementation 'com.google.mlkit:barcode-scanning:17.0.2'
+    implementation "androidx.camera:camera-core:1.0.2"
 
 
     if (enableHermes) {
-        def hermesPath = "../../node_modules/hermes-engine/android/";
+        def hermesPath = "../../node_modules/hermes-engine/android/"
         debugImplementation files(hermesPath + "hermes-debug.aar")
         releaseImplementation files(hermesPath + "hermes-release.aar")
         qaImplementation files(hermesPath + "hermes-debug.aar")

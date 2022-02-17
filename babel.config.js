@@ -3,7 +3,12 @@ module.exports = {
   plugins: [
     '@babel/plugin-proposal-export-default-from',
     '@babel/plugin-proposal-export-namespace-from',
-    'react-native-reanimated/plugin',
+    [
+      'react-native-reanimated/plugin',
+      {
+        globals: ['__scanBarcode'],
+      },
+    ],
     'tsconfig-paths-module-resolver',
   ],
 };

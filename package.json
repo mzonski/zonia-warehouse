@@ -12,6 +12,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "start-clean": "yarn start --reset-cache",
     "clean": "watchman watch-del-all && rd /s /q \"node_modules/\" && yarn cache clean",
     "clean-run": "watchman watch-del-all && rd /s /q \"node_modules/\" && yarn cache clean && yarn install && yarn start -- --reset-cache",
     "prettier:write": "npx prettier --write **/*.{js,ts,tsx}",
