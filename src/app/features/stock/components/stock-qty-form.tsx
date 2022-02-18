@@ -24,7 +24,7 @@ export const StockQtyForm: FunctionComponent<FormProps> = ({
   },
 }) => {
   return (
-    <KeyboardAvoidingView>
+    <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={92}>
       <Card>
         <Controller
           name="sku"

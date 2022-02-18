@@ -1,7 +1,7 @@
 import { categoriesReducer } from '@redux/slices/categories-slice';
 import { configurationReducer } from '@redux/slices/configuration-slice';
 import { itemsReducer } from '@redux/slices/items-slice';
-import { combineReducers, configureStore, StoreEnhancer } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, Middleware, StoreEnhancer } from '@reduxjs/toolkit';
 import Reactotron from '@util/reactotron';
 
 const appReducer = combineReducers({
@@ -10,10 +10,20 @@ const appReducer = combineReducers({
   configuration: configurationReducer,
 });
 
-const enhancers = [Reactotron?.createEnhancer?.()] as StoreEnhancer[];
+const enhancers: StoreEnhancer[] = [];
+const middlewares: Middleware[] = [];
+
+if (__DEV__) {
+  const createDebugger = require('redux-flipper').default;
+  middlewares.push(createDebugger());
+  const reactotronEnhancer = Reactotron?.createEnhancer?.();
+  if (reactotronEnhancer) {
+    enhancers.push(reactotronEnhancer);
+  }
+}
 
 export const appStore = configureStore({
   reducer: appReducer,
-  middleware: defaultMiddleware => defaultMiddleware({ serializableCheck: false }),
+  middleware: defaultMiddleware => [...defaultMiddleware({ serializableCheck: false }), ...middlewares],
   enhancers,
 });

@@ -1,9 +1,11 @@
 package pl.zonia.stocktool;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JSIModulePackage;
@@ -12,6 +14,7 @@ import com.facebook.soloader.SoLoader;
 import com.mrousavy.camera.frameprocessor.FrameProcessorPlugin;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import pl.zonia.stocktool.barcode.BarcodeScannerFrameProcessor;
@@ -53,7 +56,29 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
         SoLoader.init(this, /* native exopackage */ false);
+        initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+
         FrameProcessorPlugin.register(new BarcodeScannerFrameProcessor());
     }
+
+    private static void initializeFlipper(
+            Context context, ReactInstanceManager reactInstanceManager) {
+        if (BuildConfig.DEBUG) {
+            try {
+        /*
+         We use reflection here to pick up the class that initializes
+         Flipper, since Flipper library is not available in release mode
+        */
+                Class<?> aClass = Class.forName("com.example.ReactNativeFlipper");
+                aClass
+                        .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
+                        .invoke(null, context, reactInstanceManager);
+            } catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException | NoSuchMethodException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
