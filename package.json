@@ -40,15 +40,15 @@
     "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-hook-form": "^7.22.5",
-    "react-native": "0.66.3",
+    "react-native": "0.67.2",
     "react-native-col": "^1.1.5",
     "react-native-config": "^1.4.5",
     "react-native-elements": "^4.0.0-beta.0",
-    "react-native-flipper": "^0.131.1",
+    "react-native-flipper": "latest",
     "react-native-gesture-handler": "^2.1.0",
     "react-native-get-random-values": "^1.7.2",
     "react-native-ratings": "^8.1.0",
-    "react-native-reanimated": "2.2.4",
+    "react-native-reanimated": "^2.4.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
     "react-native-snackbar": "^2.4.0",
@@ -68,7 +68,7 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@babel/runtime": "^7.16.7",
-    "@types/react-native": "^0.66.11",
+    "@types/react-native": "^0.66.16",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
@@ -85,7 +85,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
-    "metro-react-native-babel-preset": "^0.66.2",
+    "metro-react-native-babel-preset": "^0.67.0",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4"
   },
@@ -94,7 +94,7 @@
   },
   "peerDependencies": {
     "react": "^17.0.2",
-    "react-native": "0.66.3"
+    "react-native": "0.67.2"
   },
   "husky": {
     "hooks": {
