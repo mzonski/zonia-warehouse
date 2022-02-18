@@ -8,7 +8,7 @@ export const FadeInView: FunctionComponent = ({ children }) => {
 
   const config = {
     duration: 225,
-    easing: Easing.bezier(0.42, 0, 0.58, 1),
+    easing: Easing.bezierFn(0.42, 0, 0.58, 1),
   };
 
   const style = useAnimatedStyle(() => ({

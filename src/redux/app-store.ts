@@ -2,7 +2,6 @@ import { categoriesReducer } from '@redux/slices/categories-slice';
 import { configurationReducer } from '@redux/slices/configuration-slice';
 import { itemsReducer } from '@redux/slices/items-slice';
 import { combineReducers, configureStore, Middleware, StoreEnhancer } from '@reduxjs/toolkit';
-import Reactotron from '@util/reactotron';
 
 const appReducer = combineReducers({
   categories: categoriesReducer,
@@ -16,10 +15,6 @@ const middlewares: Middleware[] = [];
 if (__DEV__) {
   const createDebugger = require('redux-flipper').default;
   middlewares.push(createDebugger());
-  const reactotronEnhancer = Reactotron?.createEnhancer?.();
-  if (reactotronEnhancer) {
-    enhancers.push(reactotronEnhancer);
-  }
 }
 
 export const appStore = configureStore({

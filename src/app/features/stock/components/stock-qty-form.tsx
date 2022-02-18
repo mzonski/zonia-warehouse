@@ -34,7 +34,6 @@ export const StockQtyForm: FunctionComponent<FormProps> = ({
             <Input
               containerStyle={{ marginBottom: 8 }}
               placeholder="Sku"
-              autoFocus
               onChangeText={field.onChange}
               onSubmitEditing={() => setFocus('quantity')}
               returnKeyType="next"
