@@ -20,6 +20,7 @@ class ErrorBoundary extends React.Component<PropsWithChildren<{}>> {
   static getDerivedStateFromError(error: any) {
     // eslint-disable-next-line no-console
     console.log('derived state from error', error);
+    return { hasError: true };
   }
 
   render() {

@@ -34,12 +34,7 @@ const FindScreen = (): JSX.Element => {
   const stickySearchHeader = useCallback(
     () => (
       <View>
-        <SearchBar
-          platform="android"
-          placeholder="Search for id, sku, name"
-          onChangeText={debouncedSetSearchPage}
-          onSubmitEditing={onSubmit}
-        />
+        <SearchBar platform="android" placeholder="Search for an item" onChangeText={debouncedSetSearchPage} onSubmitEditing={onSubmit} />
         <Divider width={1} />
       </View>
     ),

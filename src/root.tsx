@@ -1,13 +1,14 @@
 import React from 'react';
 import { LogBox } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
 import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 
+import { AppNavigator } from '@navigation/navigators/app-stack-navigator';
 import { appStore } from '@redux/app-store';
+import { paperTheme } from '@util/theme/paperTheme';
 
 import ErrorBoundary from '@component/error-boundary';
-
-import { AppNavigator } from './navigation/navigators/app-stack-navigator';
 
 LogBox.ignoreLogs([
   'Warning: Function components cannot be given refs.',
@@ -20,7 +21,9 @@ export const Root: React.FC = () => {
     <ErrorBoundary>
       <Provider store={appStore}>
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-          <AppNavigator />
+          <PaperProvider theme={paperTheme}>
+            <AppNavigator />
+          </PaperProvider>
         </SafeAreaProvider>
       </Provider>
     </ErrorBoundary>

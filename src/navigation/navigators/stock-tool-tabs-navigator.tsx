@@ -1,21 +1,22 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import { Icon } from 'react-native-elements';
 
 import FindScreen from '@feature/find/screens/find-screen';
 import StockInScreen from '@feature/stock/screens/stock-in-screen';
 import StockOutScreen from '@feature/stock/screens/stock-out-screen';
-import { StockToolBottomTabItem } from '@navigation/components/stock-tool-bottom-tab-item';
-import { BottomTabBarIconProps } from '@navigation/navigation-utils';
 import { StorageStackNavigator } from '@navigation/navigators/storage-stack-navigator';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs/src/types';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { MaterialBottomTabNavigationOptions } from '@react-navigation/material-bottom-tabs/lib/typescript/src/types';
 import { createStackNavigator, TransitionSpecs } from '@react-navigation/stack';
 import { StackNavigationOptions } from '@react-navigation/stack/lib/typescript/src/types';
+import { ZoniaColors } from '@util/theme/zoniaColors';
+import FAIcon from 'react-native-vector-icons/FontAwesome5';
 
 import { AppStackRoute, AppStackScreenParams, StockToolRoute, StockToolTabsScreenParams } from '../app-routes';
 
 const Stack = createStackNavigator<AppStackScreenParams>();
-const Tabs = createBottomTabNavigator<StockToolTabsScreenParams>();
+const Tabs = createMaterialBottomTabNavigator<StockToolTabsScreenParams>();
 
 export const defaultStackScreenOptions: StackNavigationOptions = {
   headerShown: false,
@@ -27,18 +28,8 @@ export const defaultStackScreenOptions: StackNavigationOptions = {
   },
 };
 
-export const stockToolTabScreenOptions: BottomTabNavigationOptions = {
-  headerShown: true,
-  tabBarShowLabel: false,
-  lazy: true,
-  tabBarHideOnKeyboard: true,
-  unmountOnBlur: true,
-  headerPressColor: '#fff',
-  headerPressOpacity: 1,
-  headerTintColor: '#000',
-  headerStyle: { backgroundColor: '#2360bd' },
-  headerTitleStyle: { color: '#fff' },
-  tabBarStyle: { height: 64 },
+export const stockToolTabScreenOptions: MaterialBottomTabNavigationOptions = {
+  tabBarColor: '#fff',
 };
 
 export type RightHeaderProps = {
@@ -47,35 +38,41 @@ export type RightHeaderProps = {
   pressOpacity?: number;
 };
 
-const tabBarCustomIcon = (name: string, label: string) => (props: BottomTabBarIconProps) =>
-  <StockToolBottomTabItem name={name} label={label} {...props} />;
+const tabBarCustomIcon = (name: string) => (props: { focused: boolean; color: string }) => <FAIcon name={name} {...props} size={19} />;
 
 export const StockToolTabs = () => {
   return (
-    <Tabs.Navigator initialRouteName={StockToolRoute.Storage} screenOptions={stockToolTabScreenOptions}>
+    <Tabs.Navigator
+      initialRouteName={StockToolRoute.Storage}
+      screenOptions={stockToolTabScreenOptions}
+      labeled
+      sceneAnimationEnabled
+      inactiveColor="#cacaca"
+      activeColor={ZoniaColors.primary.main}
+    >
       <Tabs.Screen
         key={StockToolRoute.Find}
         name={StockToolRoute.Find}
         component={FindScreen}
-        options={{ tabBarIcon: tabBarCustomIcon('search', 'Search'), headerTitle: 'Search' }}
+        options={{ tabBarIcon: tabBarCustomIcon('search'), tabBarLabel: 'Search' }}
       />
       <Tabs.Screen
         key={StockToolRoute.Storage}
         name={StockToolRoute.Storage}
         component={StorageStackNavigator}
-        options={{ tabBarIcon: tabBarCustomIcon('warehouse', 'Storage'), headerShown: false }}
+        options={{ tabBarIcon: tabBarCustomIcon('warehouse'), tabBarLabel: 'Storage' }}
       />
       <Tabs.Screen
         key={StockToolRoute.StockIn}
         name={StockToolRoute.StockIn}
         component={StockInScreen}
-        options={{ tabBarIcon: tabBarCustomIcon('arrow-down', 'Stock in'), headerTitle: 'Stock in' }}
+        options={{ tabBarIcon: tabBarCustomIcon('arrow-down'), tabBarLabel: 'Stock in' }}
       />
       <Tabs.Screen
         key={StockToolRoute.StockOut}
         name={StockToolRoute.StockOut}
         component={StockOutScreen}
-        options={{ tabBarIcon: tabBarCustomIcon('arrow-up', 'Stock out'), headerTitle: 'Stock out' }}
+        options={{ tabBarLabel: 'Stock out', tabBarIcon: tabBarCustomIcon('arrow-up') }}
       />
     </Tabs.Navigator>
   );

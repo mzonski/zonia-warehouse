@@ -11,6 +11,7 @@ import ItemListScreen from '@feature/storage/screens/item-list-screen';
 import { RightHeaderProps } from '@navigation/navigators/stock-tool-tabs-navigator';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import { StackNavigationOptions } from '@react-navigation/stack/lib/typescript/src/types';
+import { ZoniaColors } from '@util/theme/zoniaColors';
 
 import { StorageStackRoute, StorageStackScreenParams } from '../app-routes';
 
@@ -21,13 +22,11 @@ const storageItemsActions = (props: RightHeaderProps) => <StorageItemListActions
 
 export const defaultStackScreenOptions: StackNavigationOptions = {
   headerShown: true,
-  headerRight: storageAppBarActions,
-  title: 'Storage',
   animationEnabled: true,
   headerPressColor: '#fff',
   headerPressOpacity: 1,
   headerTintColor: '#ffffff',
-  headerStyle: { backgroundColor: '#2360bd' },
+  headerStyle: { backgroundColor: ZoniaColors.primary.main },
   headerTitleStyle: { color: '#fff' },
 };
 
@@ -36,27 +35,15 @@ export const StorageStackNavigator = () => (
     initialRouteName={StorageStackRoute.CategoryList}
     screenOptions={{ ...defaultStackScreenOptions, ...TransitionPresets.SlideFromRightIOS }}
   >
-    <Stack.Screen name={StorageStackRoute.CategoryList} component={CategoryListScreen} />
     <Stack.Screen
-      name={StorageStackRoute.CategoryAdd}
-      component={CategoryAddScreen}
-      options={{ headerTitle: 'Add category', headerRight: undefined }}
+      name={StorageStackRoute.CategoryList}
+      component={CategoryListScreen}
+      options={{ title: 'Storage', headerRight: storageAppBarActions }}
     />
-    <Stack.Screen
-      name={StorageStackRoute.CategoryEdit}
-      component={CategoryEditScreen}
-      options={{ headerTitle: 'Edit category', headerRight: undefined }}
-    />
-    <Stack.Screen
-      name={StorageStackRoute.ItemAdd}
-      component={ItemAddScreen}
-      options={{ headerTitle: 'Add item', headerRight: undefined }}
-    />
-    <Stack.Screen
-      name={StorageStackRoute.ItemEdit}
-      component={ItemEditScreen}
-      options={{ headerTitle: 'Edit item', headerRight: undefined }}
-    />
+    <Stack.Screen name={StorageStackRoute.CategoryAdd} component={CategoryAddScreen} options={{ headerTitle: 'Add category' }} />
+    <Stack.Screen name={StorageStackRoute.CategoryEdit} component={CategoryEditScreen} options={{ headerTitle: 'Edit category' }} />
+    <Stack.Screen name={StorageStackRoute.ItemAdd} component={ItemAddScreen} options={{ headerTitle: 'Add item' }} />
+    <Stack.Screen name={StorageStackRoute.ItemEdit} component={ItemEditScreen} options={{ headerTitle: 'Edit item' }} />
     <Stack.Screen name={StorageStackRoute.ItemList} component={ItemListScreen} options={{ headerRight: storageItemsActions }} />
   </Stack.Navigator>
 );
