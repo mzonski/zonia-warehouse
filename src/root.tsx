@@ -1,11 +1,13 @@
 import React from 'react';
 import { LogBox } from 'react-native';
+import { ThemeProvider } from 'react-native-elements';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 
 import { AppNavigator } from '@navigation/navigators/app-stack-navigator';
 import { appStore } from '@redux/app-store';
+import { nativeElementsTheme } from '@util/theme/nativeElementsTheme';
 import { paperTheme } from '@util/theme/paperTheme';
 
 import ErrorBoundary from '@component/error-boundary';
@@ -21,9 +23,11 @@ export const Root: React.FC = () => {
     <ErrorBoundary>
       <Provider store={appStore}>
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-          <PaperProvider theme={paperTheme}>
-            <AppNavigator />
-          </PaperProvider>
+          <ThemeProvider theme={nativeElementsTheme}>
+            <PaperProvider theme={paperTheme}>
+              <AppNavigator />
+            </PaperProvider>
+          </ThemeProvider>
         </SafeAreaProvider>
       </Provider>
     </ErrorBoundary>
