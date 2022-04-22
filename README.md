@@ -1,3 +1,3 @@
-# ZONIA Stock Tool
+# ZONIA Warehouse
 
-Very basic app for stock management
+Warehouse management tool

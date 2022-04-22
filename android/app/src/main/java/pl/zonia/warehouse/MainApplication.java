@@ -1,4 +1,4 @@
-package pl.zonia.stocktool;
+package pl.zonia.warehouse;
 
 import android.app.Application;
 import android.content.Context;
@@ -17,7 +17,7 @@ import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-import pl.zonia.stocktool.barcode.BarcodeScannerFrameProcessor;
+import pl.zonia.warehouse.barcode.BarcodeScannerFrameProcessor;
 
 public class MainApplication extends Application implements ReactApplication {
 

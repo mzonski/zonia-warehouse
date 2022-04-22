@@ -1,4 +1,4 @@
-package pl.zonia.stocktool.barcode;
+package pl.zonia.warehouse.barcode;
 import android.annotation.SuppressLint;
 import android.media.Image;
 import androidx.annotation.NonNull;

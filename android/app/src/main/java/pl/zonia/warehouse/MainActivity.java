@@ -1,4 +1,4 @@
-package pl.zonia.stocktool;
+package pl.zonia.warehouse;
 
 import android.os.Bundle;
 
@@ -12,7 +12,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "StockTool";
+    return "WarehouseApp";
   }
 
   @Override

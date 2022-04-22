@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package pl.zonia.stocktool;
+package pl.zonia.warehouse;
 
 import android.content.Context;
 
