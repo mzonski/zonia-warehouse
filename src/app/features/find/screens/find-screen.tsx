@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { View, TextInputSubmitEditingEventData, NativeSyntheticEvent, FlatList, ListRenderItem } from 'react-native';
+import { FlatList, ListRenderItem, NativeSyntheticEvent, TextInputSubmitEditingEventData, View } from 'react-native';
 import { Divider, SearchBar } from 'react-native-elements';
 
 import { useAppSelector } from '@redux/app-redux-hooks';
@@ -7,8 +7,7 @@ import { getItems } from '@redux/selectors/items-selectors';
 import { objectStringSearch } from '@util/forms/form-filtering';
 import { debounce } from 'lodash';
 
-import { FadeInView } from '@component/fade-in-view';
-import { StockListItem, FindStockListItemProps } from '@component/stock-list-item';
+import { FindStockListItemProps, StockListItem } from '@component/stock-list-item';
 
 const FindScreen = (): JSX.Element => {
   const [searchPhrase, setSearchPhrase] = useState<string>();
@@ -42,15 +41,13 @@ const FindScreen = (): JSX.Element => {
   );
 
   return (
-    <FadeInView>
-      <FlatList
-        data={filteredData}
-        renderItem={renderListItem}
-        stickyHeaderIndices={[0]}
-        ListHeaderComponent={stickySearchHeader}
-        ItemSeparatorComponent={Divider}
-      />
-    </FadeInView>
+    <FlatList
+      data={filteredData}
+      renderItem={renderListItem}
+      stickyHeaderIndices={[0]}
+      ListHeaderComponent={stickySearchHeader}
+      ItemSeparatorComponent={Divider}
+    />
   );
 };
 

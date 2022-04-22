@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { FlatList, ListRenderItem } from 'react-native';
+import { FlatList, ListRenderItem, View } from 'react-native';
 import { Divider } from 'react-native-elements';
 
 import { useStorageNavigation } from '@navigation/hooks/useStorageNavigation';
@@ -8,7 +8,6 @@ import { useAppDispatch, useAppSelector } from '@redux/app-redux-hooks';
 import { getCategory, getCategoryIds } from '@redux/selectors/categories-selectors';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 
-import { FadeInView } from '@component/fade-in-view';
 import { ListItem } from '@component/list-item';
 import SwipeableIcon from '@component/swipeable-icon';
 
@@ -50,9 +49,9 @@ const CategoryListScreen = () => {
   const renderListItem: ListRenderItem<string> = ({ item }) => <CategoryListItem categoryId={item} />;
 
   return (
-    <FadeInView>
+    <View>
       <FlatList style={{ borderRadius: 8 }} data={categories} renderItem={renderListItem} ItemSeparatorComponent={Divider} />
-    </FadeInView>
+    </View>
   );
 };
 
