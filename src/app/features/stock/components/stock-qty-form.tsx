@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { Controller, UseFormReturn } from 'react-hook-form';
 import { KeyboardAvoidingView } from 'react-native';
-import { Button, Card, Input } from 'react-native-elements';
 
 import { StockQtyFormProps } from '@feature/stock/types/stock-qty-form-props';
+import { Button, Card, Input } from '@rneui/themed';
 import { getErrorMessage, hasError } from '@util/forms/form-error-message';
 import { omit } from 'lodash';
 

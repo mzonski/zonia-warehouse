@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import { Icon } from 'react-native-elements';
 
 import FindScreen from '@feature/find/screens/find-screen';
 import StockInScreen from '@feature/stock/screens/stock-in-screen';
@@ -10,6 +9,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { MaterialBottomTabNavigationOptions } from '@react-navigation/material-bottom-tabs/lib/typescript/src/types';
 import { createStackNavigator, TransitionSpecs } from '@react-navigation/stack';
 import { StackNavigationOptions } from '@react-navigation/stack/lib/typescript/src/types';
+import { Icon } from '@rneui/themed';
 import { ZoniaColors } from '@util/theme/zoniaColors';
 import FAIcon from 'react-native-vector-icons/FontAwesome5';
 

@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { FlatList, ListRenderItem, NativeSyntheticEvent, TextInputSubmitEditingEventData, View } from 'react-native';
-import { Divider, SearchBar } from 'react-native-elements';
 
 import { useAppSelector } from '@redux/app-redux-hooks';
 import { getItems } from '@redux/selectors/items-selectors';
+import { Divider, SearchBar } from '@rneui/themed';
 import { objectStringSearch } from '@util/forms/form-filtering';
 import { debounce } from 'lodash';
 

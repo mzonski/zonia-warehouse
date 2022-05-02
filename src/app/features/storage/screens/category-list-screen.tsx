@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { FlatList, ListRenderItem, View } from 'react-native';
-import { Divider } from 'react-native-elements';
 
 import { useStorageNavigation } from '@navigation/hooks/useStorageNavigation';
 import { removeCategory } from '@redux/actions/categories-actions';
 import { useAppDispatch, useAppSelector } from '@redux/app-redux-hooks';
 import { getCategory, getCategoryIds } from '@redux/selectors/categories-selectors';
+import { Divider } from '@rneui/themed';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 
 import { ListItem } from '@component/list-item';

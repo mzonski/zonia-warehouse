@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useLayoutEffect } from 'react';
 import { FlatList, ListRenderItem } from 'react-native';
-import { Divider } from 'react-native-elements';
 
 import { StorageStackRoute, StorageStackScreenParams } from '@navigation/app-routes';
 import { useStorageNavigation } from '@navigation/hooks/useStorageNavigation';
@@ -9,6 +8,7 @@ import { removeItem } from '@redux/actions/items-actions';
 import { useAppDispatch, useAppSelector } from '@redux/app-redux-hooks';
 import { getCategory } from '@redux/selectors/categories-selectors';
 import { getItem } from '@redux/selectors/items-selectors';
+import { Divider } from '@rneui/themed';
 
 import { FadeInView } from '@component/fade-in-view';
 import { ListItem } from '@component/list-item';

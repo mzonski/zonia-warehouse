@@ -1,8 +1,9 @@
 import React, { createRef, FunctionComponent, ReactNode, useCallback } from 'react';
 import { StyleSheet, TouchableNativeFeedback } from 'react-native';
 import Col, { Row } from 'react-native-col';
-import { Text } from 'react-native-elements';
 import { Swipeable } from 'react-native-gesture-handler';
+
+import { Text } from '@rneui/themed';
 
 const styles = StyleSheet.create({
   name: {

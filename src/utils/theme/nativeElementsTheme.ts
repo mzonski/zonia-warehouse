@@ -1,5 +1,4 @@
-import { Theme } from 'react-native-elements';
-
+import { Theme } from '@rneui/themed';
 import { ZoniaColors } from '@util/theme/zoniaColors';
 
 export const nativeElementsTheme: Theme = {

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { Text } from 'react-native-elements';
+
+import { Text } from '@rneui/themed';
 
 import { ListItem } from '@component/list-item';
 

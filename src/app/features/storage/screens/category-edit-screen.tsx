@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Button, Card, Input } from 'react-native-elements';
 
 import { StorageStackRoute, StorageStackScreenParams } from '@navigation/app-routes';
 import { useStorageNavigation } from '@navigation/hooks/useStorageNavigation';
@@ -8,6 +7,7 @@ import { StackScreenProps } from '@react-navigation/stack/src/types';
 import { updateCategory } from '@redux/actions/categories-actions';
 import { useAppDispatch, useAppSelector } from '@redux/app-redux-hooks';
 import { getCategory } from '@redux/selectors/categories-selectors';
+import { Button, Card, Input } from '@rneui/themed';
 import { getErrorMessage } from '@util/forms/form-error-message';
 
 import { FadeInView } from '@component/fade-in-view';

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { Controller, UseFormReturn } from 'react-hook-form';
-import { Button, Card, Input } from 'react-native-elements';
 
 import { Item } from '@redux/slices/items-slice';
+import { Button, Card, Input } from '@rneui/themed';
 import { getErrorMessage } from '@util/forms/form-error-message';
 import { omit } from 'lodash';
 
