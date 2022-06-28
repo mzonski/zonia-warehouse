@@ -44,6 +44,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'guard-for-in': 'off',
     'no-continue': 'off',
+    'no-bitwise': 'off',
     'import/order': [
       'warn',
       {
